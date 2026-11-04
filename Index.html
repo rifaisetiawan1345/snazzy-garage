@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snazzy Garage | Rental Perlengkapan Touring & Garasi</title>
+  
+  <!-- Google Fonts: Syne & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Syne', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          },
+          colors: {
+            // WARNA AKSEN TUNGGAL (Ubah nilai HEX di bawah untuk mengganti seluruh aksen website)
+            accent: {
+              DEFAULT: '#f59e0b', // Amber / Racing Gold
+              hover: '#d97706',
+              light: 'rgba(245, 158, 11, 0.15)',
+              border: 'rgba(245, 158, 11, 0.4)'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Styling scrollbar halus tema gelap */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #09090b; }
+    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #f59e0b; }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-sans min-h-screen flex flex-col antialiased selection:bg-accent selection:text-zinc-950">
+
+  <!-- ==================== HEADER & NAVBAR ==================== -->
+  <header class="sticky top-0 z-40 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo Snazzy Garage (SVG + Text) -->
+      <a href="#" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-accent rounded-lg p-1">
+        <div class="w-11 h-11 rounded-xl bg-zinc-900 border border-zinc-700/80 flex items-center justify-center text-accent group-hover:border-accent transition-all duration-300 shadow-lg shadow-accent/5">
+          <!-- Ikon Kunci Pas / Garasi Minimalis -->
+          <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+          </svg>
+        </div>
+        <div>
+          <span id="nav-brand-title" class="font-heading text-xl sm:text-2xl font-extrabold tracking-wider uppercase text-zinc-100 flex items-center gap-1">
+            SNAZZY<span class="text-accent">GARAGE</span>
+          </span>
+          <span class="text-[11px] block text-zinc-400 font-medium tracking-widest uppercase">Rental Adventure & Garasi</span>
+        </div>
+      </a>
+
+      <!-- Info Kontak / WA Cepat -->
+      <div class="flex items-center gap-3">
+        <div class="hidden md:flex flex-col text-right">
+          <span class="text-xs text-zinc-400">Jam Layanan:</span>
+          <span id="nav-jam-buka" class="text-xs font-semibold text-zinc-200">08.00 - 20.00 WIB</span>
+        </div>
+        <a id="nav-wa-link" href="#" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-200 text-xs sm:text-sm font-semibold border border-zinc-700 hover:border-accent transition-all focus:outline-none focus:ring-2 focus:ring-accent">
+          <svg class="w-4 h-4 text-emerald-400 fill-current" viewBox="0 0 24 24">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+          </svg>
+          <span class="hidden sm:inline">Hubungi Admin</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative overflow-hidden pt-12 pb-16 border-b border-zinc-800/60 bg-gradient-to-b from-zinc-900/60 via-zinc-950 to-zinc-950">
+    <!-- Grid Pattern Background Effect -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#27272a15_1px,transparent_1px),linear-gradient(to_bottom,#27272a15_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/30 text-accent text-xs font-semibold uppercase tracking-wider mb-6">
+          <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+          Katalog Rental Online Resmi
+        </div>
+        <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
+          Sewa Perlengkapan Touring & Alat Garasi <span class="text-accent">Tanpa Ribet.</span>
+        </h1>
+        <p class="text-zinc-400 text-base sm:text-lg leading-relaxed mb-8">
+          Siap gas tipis-tipis atau ekspedisi lintas pulau. Kebutuhan box motor, action cam 4K, perlengkapan camp, dan toolkit mekanik tersedia dengan unit terawat prima dan tarif terjangkau.
+        </p>
+
+        <!-- Quick USP Badges -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2 border-t border-zinc-800/80">
+          <div class="flex items-center gap-2.5 text-zinc-300 text-xs sm:text-sm">
+            <svg class="w-5 h-5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span>Stok Riil & Siap Pakai</span>
+          </div>
+          <div class="flex items-center gap-2.5 text-zinc-300 text-xs sm:text-sm">
+            <svg class="w-5 h-5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>Hitungan Harian Fleksibel</span>
+          </div>
+          <div class="flex items-center gap-2.5 text-zinc-300 text-xs sm:text-sm col-span-2 sm:col-span-1">
+            <svg class="w-5 h-5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <span>Tanpa Biaya Tersembunyi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    
+    <!-- Filter Bar & Search -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+      
+      <!-- Filter Kategori (Tombol Tab) -->
+      <div id="category-tabs" class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
+        <button onclick="setKategori('Semua')" class="filter-tab active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-accent text-zinc-950 shadow-md">
+          Semua
+        </button>
+        <!-- Kategori dinamis akan ditambahkan lewat JS -->
+      </div>
+
+      <!-- Kolom Pencarian -->
+      <div class="relative w-full md:w-72">
+        <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="Cari perlengkapan..." 
+               class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2.5 pl-10 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+               aria-label="Pencarian produk rental">
+        <svg class="w-4 h-4 text-zinc-500 absolute left-3.5 top-3.5 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- State: Skeleton Loading -->
+    <div id="loading-state" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- 6 Skeleton Cards -->
+      <div class="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-4 animate-pulse space-y-4">
+        <div class="h-48 bg-zinc-800 rounded-xl"></div>
+        <div class="h-5 bg-zinc-800 rounded w-3/4"></div>
+        <div class="h-4 bg-zinc-800 rounded w-1/2"></div>
+        <div class="h-10 bg-zinc-800 rounded-xl"></div>
+      </div>
+      <div class="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-4 animate-pulse space-y-4">
+        <div class="h-48 bg-zinc-800 rounded-xl"></div>
+        <div class="h-5 bg-zinc-800 rounded w-3/4"></div>
+        <div class="h-4 bg-zinc-800 rounded w-1/2"></div>
+        <div class="h-10 bg-zinc-800 rounded-xl"></div>
+      </div>
+      <div class="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-4 animate-pulse space-y-4">
+        <div class="h-48 bg-zinc-800 rounded-xl"></div>
+        <div class="h-5 bg-zinc-800 rounded w-3/4"></div>
+        <div class="h-4 bg-zinc-800 rounded w-1/2"></div>
+        <div class="h-10 bg-zinc-800 rounded-xl"></div>
+      </div>
+    </div>
+
+    <!-- State: Error Fetch -->
+    <div id="error-state" class="hidden text-center py-16 bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 max-w-lg mx-auto">
+      <div class="w-14 h-14 bg-red-500/10 text-red-400 rounded-2xl border border-red-500/20 flex items-center justify-center mx-auto mb-4">
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+      </div>
+      <h3 class="font-heading text-lg font-bold text-zinc-100 mb-2">Gagal Memuat Katalog</h3>
+      <p id="error-message" class="text-zinc-400 text-sm mb-6">Koneksi ke backend Google Apps Script terputus atau URL belum disetel.</p>
+      <button onclick="muatDataKatalog()" class="px-5 py-2.5 bg-accent hover:bg-accent-hover text-zinc-950 font-bold rounded-xl text-sm transition-all shadow-lg focus:outline-none focus:ring-2 focus:ring-accent">
+        Coba Lagi
+      </button>
+    </div>
+
+    <!-- Grid Katalog Produk -->
+    <div id="product-grid" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Kartu Produk Ditampilkan Melalui JavaScript -->
+    </div>
+
+    <!-- State: Tidak Ada Produk -->
+    <div id="empty-state" class="hidden text-center py-16">
+      <p class="text-zinc-500 text-base">Tidak ada barang yang cocok dengan kriteria pencarian Anda.</p>
+    </div>
+
+  </main>
+
+  <!-- ==================== MODAL FORM BOOKING ==================== -->
+  <div id="booking-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="relative bg-zinc-900 border border-zinc-800 rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl transition-all">
+      
+      <!-- Tombol Close Modal -->
+      <button onclick="tutupModalBooking()" class="absolute top-5 right-5 text-zinc-400 hover:text-white p-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" aria-label="Tutup form booking">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <!-- Header Modal -->
+      <div class="mb-6">
+        <span class="text-accent text-xs font-bold uppercase tracking-wider block mb-1">Form Pemesanan</span>
+        <h2 id="modal-product-title" class="font-heading text-xl sm:text-2xl font-bold text-zinc-100">Nama Produk</h2>
+        <p id="modal-product-price" class="text-sm text-zinc-400 mt-1">Rp 0 / hari</p>
+      </div>
+
+      <!-- Form Input -->
+      <form id="form-booking" onsubmit="handleFormSubmit(event)" class="space-y-4">
+        <input type="hidden" id="form-product-id">
+
+        <!-- Nama Lengkap -->
+        <div>
+          <label for="form-nama" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">Nama Lengkap *</label>
+          <input type="text" id="form-nama" required placeholder="Contoh: Budi Santoso"
+                 class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent">
+        </div>
+
+        <!-- WhatsApp & Email -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="form-wa" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">No. WhatsApp *</label>
+            <input type="tel" id="form-wa" required placeholder="Contoh: 081234567890"
+                   class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent">
+          </div>
+          <div>
+            <label for="form-email" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">Email *</label>
+            <input type="email" id="form-email" required placeholder="nama@email.com"
+                   class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent">
+          </div>
+        </div>
+
+        <!-- Rentang Tanggal -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="form-mulai" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">Mulai Sewa *</label>
+            <input type="date" id="form-mulai" required onchange="handleDateChange()"
+                   class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-zinc-100 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent">
+          </div>
+          <div>
+            <label for="form-selesai" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">Selesai Sewa *</label>
+            <input type="date" id="form-selesai" required onchange="handleDateChange()"
+                   class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-zinc-100 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent">
+          </div>
+        </div>
+
+        <!-- Jumlah Unit -->
+        <div>
+          <label for="form-jumlah" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">Jumlah Unit *</label>
+          <div class="flex items-center gap-3">
+            <input type="number" id="form-jumlah" min="1" value="1" required oninput="handleJumlahChange()"
+                   class="w-28 bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-zinc-100 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent">
+            <div id="availability-badge" class="text-xs px-3 py-1.5 rounded-lg bg-zinc-800 text-zinc-400 font-medium">
+              Pilih tanggal untuk cek stok
+            </div>
+          </div>
+        </div>
+
+        <!-- Catatan Tambahan -->
+        <div>
+          <label for="form-catatan" class="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">Catatan Tambahan (Opsional)</label>
+          <textarea id="form-catatan" rows="2" placeholder="Contoh: Ambil sore hari, pasang di motor NMAX..."
+                    class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-2 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"></textarea>
+        </div>
+
+        <!-- Ringkasan Biaya Real-Time -->
+        <div class="bg-zinc-950/80 border border-zinc-800/80 rounded-xl p-4 space-y-2">
+          <div class="flex justify-between text-xs text-zinc-400">
+            <span>Durasi Sewa:</span>
+            <span id="summary-durasi" class="font-medium text-zinc-200">1 Hari</span>
+          </div>
+          <div class="flex justify-between text-xs text-zinc-400">
+            <span>Tarif Harian:</span>
+            <span id="summary-tarif" class="font-medium text-zinc-200">Rp 0</span>
+          </div>
+          <div class="pt-2 border-t border-zinc-800 flex justify-between items-center text-sm font-bold">
+            <span class="text-zinc-200">Estimasi Total:</span>
+            <span id="summary-total" class="text-accent text-base font-heading font-extrabold">Rp 0</span>
+          </div>
+        </div>
+
+        <!-- Error Alert Form -->
+        <div id="form-error-alert" class="hidden p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs"></div>
+
+        <!-- Tombol Kirim Booking -->
+        <div class="pt-2">
+          <button type="submit" id="btn-submit-booking"
+                  class="w-full py-3.5 px-6 rounded-xl bg-accent hover:bg-accent-hover text-zinc-950 font-heading font-bold text-sm tracking-wider uppercase transition-all shadow-lg shadow-accent/10 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-accent">
+            <span id="btn-submit-text">Kirim Booking Sekarang</span>
+            <svg id="btn-submit-spinner" class="hidden animate-spin h-5 w-5 text-zinc-950" viewBox="0 0 24 24" fill="none">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL SUKSES BOOKING ==================== -->
+  <div id="success-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="relative bg-zinc-900 border border-zinc-800 rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl text-center">
+      
+      <!-- Icon Centang Sukses -->
+      <div class="w-16 h-16 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-5">
+        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+
+      <h3 class="font-heading text-2xl font-extrabold text-white mb-2">Booking Berhasil Dibuat!</h3>
+      <p id="success-message-text" class="text-zinc-400 text-sm mb-6">
+        Data booking Anda telah tersimpan di sistem Snazzy Garage.
+      </p>
+
+      <!-- Box Booking ID -->
+      <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-4 mb-6">
+        <span class="text-xs text-zinc-500 uppercase tracking-widest block mb-1">ID Booking Anda</span>
+        <span id="success-booking-id" class="font-heading text-xl font-extrabold text-accent tracking-wider">SG-00000000-000</span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="space-y-3">
+        <!-- Tombol Konfirmasi WA -->
+        <a id="btn-success-wa" href="#" target="_blank" rel="noopener noreferrer"
+           class="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm tracking-wide flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-900/20">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+          </svg>
+          Konfirmasi via WhatsApp
+        </a>
+
+        <!-- Tombol Selesai & Tutup -->
+        <button onclick="tutupModalSukses()" class="w-full py-2.5 px-4 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-semibold text-sm transition-colors">
+          Kembali ke Katalog
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-zinc-950 border-t border-zinc-800/80 mt-16 py-12 text-zinc-400 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        
+        <!-- Info Brand -->
+        <div class="space-y-3">
+          <span class="font-heading text-xl font-extrabold tracking-wider text-zinc-100 uppercase">
+            SNAZZY<span class="text-accent">GARAGE</span>
+          </span>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Pusat rental perlengkapan adventure motor, touring gear, dan peralatan bengkel darurat berbiaya terjangkau.
+          </p>
+        </div>
+
+        <!-- Alamat & Jam Buka -->
+        <div class="space-y-2 text-xs">
+          <span class="font-bold text-zinc-200 uppercase tracking-wider block mb-2">Lokasi & Jam Kerja</span>
+          <p id="footer-alamat">Memuat alamat garasi...</p>
+          <p id="footer-jam" class="text-zinc-300 font-medium">Memuat jam operasional...</p>
+        </div>
+
+        <!-- Kontak Langsung -->
+        <div class="space-y-2 text-xs">
+          <span class="font-bold text-zinc-200 uppercase tracking-wider block mb-2">Kontak Bantuan</span>
+          <p>WhatsApp: <span id="footer-wa" class="text-accent font-semibold">-</span></p>
+          <p>Email: <span id="footer-email" class="text-zinc-300">-</span></p>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-zinc-900 text-center text-xs text-zinc-500">
+        &copy; <span id="current-year"></span> <span id="footer-brand-name">Snazzy Garage</span>. Seluruh hak cipta dilindungi. Serverless powered by Google Apps Script & Sheets.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== LOGIKA JAVASCRIPT VANILLA ==================== -->
+  <script>
+    /**
+     * KONFIGURASI WEB APP URL
+     * Ganti string di bawah ini dengan URL Web App hasil deploy Google Apps Script Anda.
+     */
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwWxKY56zTGLW6tp9CVMLJQ4w6w0Wz6DHzNf0dny_XPjSedwAl9lE8_4FR30sUaQyDx/exec";
+
+    // State Aplikasi
+    let state = {
+      produk: [],
+      pengaturan: {},
+      kategoriAktif: 'Semua',
+      kataKunci: '',
+      produkTerpilih: null,
+      stokTersedia: 0,
+      isCheckingAvailability: false
+    };
+
+    // Format Rupiah
+    function formatRupiah(angka) {
+      return new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        maximumFractionDigits: 0
+      }).format(angka);
+    }
+
+    // Inisialisasi Aplikasi Saat Halaman Selesai Dimuat
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+      initDateInputs();
+      muatDataKatalog();
+    });
+
+    // Set tanggal minimal hari ini pada picker input
+    function initDateInputs() {
+      const today = new Date().toISOString().split('T')[0];
+      const inputMulai = document.getElementById('form-mulai');
+      const inputSelesai = document.getElementById('form-selesai');
+      inputMulai.min = today;
+      inputSelesai.min = today;
+    }
+
+    /**
+     * Mengambil daftar produk & data pengaturan usaha dari Web App GAS
+     */
+    async function muatDataKatalog() {
+      const loadingEl = document.getElementById('loading-state');
+      const gridEl = document.getElementById('product-grid');
+      const errorEl = document.getElementById('error-state');
+      const emptyEl = document.getElementById('empty-state');
+
+      loadingEl.classList.remove('hidden');
+      gridEl.classList.add('hidden');
+      errorEl.classList.add('hidden');
+      emptyEl.classList.add('hidden');
+
+      // Pengecekan apakah URL masih dummy
+      if (WEB_APP_URL.includes("AKfycbzL5z3Yl-EXAMPLE")) {
+        loadingEl.classList.add('hidden');
+        errorEl.classList.remove('hidden');
+        document.getElementById('error-message').innerHTML = 
+          'Konstanta <code class="bg-zinc-800 text-amber-400 px-1 py-0.5 rounded text-xs">WEB_APP_URL</code> belum diganti dengan URL Web App Anda.<br>Silakan deploy Google Apps Script lalu tempel URL-nya di bagian atas skrip ini.';
+        return;
+      }
+
+      try {
+        const response = await fetch(`${WEB_APP_URL}?action=products`, { credentials: 'omit' });
+        const result = await response.json();
+
+        if (result.success && result.data) {
+          state.produk = result.data.produk || [];
+          state.pengaturan = result.data.pengaturan || {};
+
+          terapkanPengaturanToko(state.pengaturan);
+          buatTabKategori(state.produk);
+          renderKatalog();
+
+          loadingEl.classList.add('hidden');
+          gridEl.classList.remove('hidden');
+        } else {
+          throw new Error(result.error || 'Respon backend tidak valid');
+        }
+      } catch (err) {
+        console.error('Fetch error:', err);
+        loadingEl.classList.add('hidden');
+        errorEl.classList.remove('hidden');
+        document.getElementById('error-message').textContent = 
+          'Gagal memuat data dari server: ' + err.message;
+      }
+    }
+
+    /**
+     * Terapkan data dinamis dari sheet Pengaturan ke tampilan
+     */
+    function terapkanPengaturanToko(setting) {
+      if (!setting) return;
+      const nama = setting.NamaUsaha || 'Snazzy Garage';
+      const wa = setting.NoWhatsAppAdmin || '';
+      const email = setting.EmailAdmin || '';
+      const alamat = setting.Alamat || '';
+      const jam = setting.JamOperasional || '';
+
+      document.title = `${nama} | Rental Perlengkapan Touring & Garasi`;
+      document.getElementById('footer-brand-name').textContent = nama;
+      document.getElementById('footer-alamat').textContent = alamat;
+      document.getElementById('footer-jam').textContent = jam;
+      document.getElementById('nav-jam-buka').textContent = jam;
+      document.getElementById('footer-wa').textContent = wa ? `+${wa}` : '-';
+      document.getElementById('footer-email').textContent = email;
+
+      if (wa) {
+        const cleanWA = wa.replace(/[^0-9]/g, '');
+        const waUrl = `https://wa.me/${cleanWA}?text=Halo%20${encodeURIComponent(nama)},%20saya%20ingin%20tanya%20seputar%20rental%20perlengkapan.`;
+        document.getElementById('nav-wa-link').href = waUrl;
+      }
+    }
+
+    /**
+     * Membangun filter tab kategori secara dinamis
+     */
+    function buatTabKategori(listProduk) {
+      const container = document.getElementById('category-tabs');
+      const kategoriSet = new Set();
+      listProduk.forEach(p => { if (p.kategori) kategoriSet.add(p.kategori); });
+
+      // Pertahankan tombol "Semua", tambahkan sisanya
+      container.innerHTML = `
+        <button onclick="setKategori('Semua')" id="tab-Semua" class="filter-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-accent text-zinc-950 shadow-md">
+          Semua
+        </button>
+      `;
+
+      kategoriSet.forEach(kat => {
+        const btn = document.createElement('button');
+        btn.id = `tab-${kat}`;
+        btn.className = 'filter-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800';
+        btn.textContent = kat;
+        btn.onclick = () => setKategori(kat);
+        container.appendChild(btn);
+      });
+    }
+
+    function setKategori(kategori) {
+      state.kategoriAktif = kategori;
+      document.querySelectorAll('.filter-tab').forEach(b => {
+        b.className = 'filter-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800';
+      });
+      const activeBtn = document.getElementById(`tab-${kategori}`);
+      if (activeBtn) {
+        activeBtn.className = 'filter-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-accent text-zinc-950 shadow-md';
+      }
+      renderKatalog();
+    }
+
+    function handleSearch(val) {
+      state.kataKunci = val.toLowerCase().trim();
+      renderKatalog();
+    }
+
+    /**
+     * Menampilkan kartu produk sesuai filter
+     */
+    function renderKatalog() {
+      const gridEl = document.getElementById('product-grid');
+      const emptyEl = document.getElementById('empty-state');
+      gridEl.innerHTML = '';
+
+      const terfilter = state.produk.filter(item => {
+        const cocokKategori = state.kategoriAktif === 'Semua' || item.kategori === state.kategoriAktif;
+        const cocokSearch = item.nama.toLowerCase().includes(state.kataKunci) ||
+                            item.deskripsi.toLowerCase().includes(state.kataKunci);
+        return cocokKategori && cocokSearch;
+      });
+
+      if (terfilter.length === 0) {
+        emptyEl.classList.remove('hidden');
+        return;
+      } else {
+        emptyEl.classList.add('hidden');
+      }
+
+      terfilter.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'group bg-zinc-900/70 border border-zinc-800/80 hover:border-accent/60 rounded-2xl p-4 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/5';
+        
+        card.innerHTML = `
+          <div>
+            <!-- Gambar Produk -->
+            <div class="relative w-full h-52 rounded-xl overflow-hidden bg-zinc-950 mb-4 border border-zinc-800/50">
+              <img src="${item.urlGambar}" alt="${item.nama}" 
+                   onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=600&auto=format&fit=crop&q=80';"
+                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-zinc-950/80 backdrop-blur-md border border-zinc-700/80 text-[10px] font-bold text-accent tracking-wider uppercase">
+                ${item.kategori || 'Peralatan'}
+              </span>
+              <span class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-zinc-950/80 text-[11px] text-zinc-300 border border-zinc-800">
+                Stok: ${item.stok} unit
+              </span>
+            </div>
+
+            <!-- Detail Teks -->
+            <h3 class="font-heading text-lg font-bold text-zinc-100 group-hover:text-accent transition-colors mb-2">
+              ${item.nama}
+            </h3>
+            <p class="text-zinc-400 text-xs leading-relaxed line-clamp-2 mb-4">
+              ${item.deskripsi}
+            </p>
+          </div>
+
+          <!-- Bagian Bawah: Harga & CTA -->
+          <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between gap-2">
+            <div>
+              <span class="text-[10px] text-zinc-500 block uppercase tracking-wider">Tarif Sewa</span>
+              <span class="text-base font-extrabold font-heading text-white">
+                ${formatRupiah(item.hargaPerHari)}
+                <span class="text-xs text-zinc-400 font-normal">/hari</span>
+              </span>
+            </div>
+            <button onclick="bukaModalBooking('${item.id}')"
+                    class="px-4 py-2 rounded-xl bg-zinc-800 hover:bg-accent text-zinc-200 hover:text-zinc-950 text-xs font-bold transition-all focus:outline-none focus:ring-2 focus:ring-accent">
+              Sewa Sekarang
+            </button>
+          </div>
+        `;
+        gridEl.appendChild(card);
+      });
+    }
+
+    /**
+     * Membuka form modal booking untuk produk terpilih
+     */
+    function bukaModalBooking(produkId) {
+      const produk = state.produk.find(p => p.id === produkId);
+      if (!produk) return;
+
+      state.produkTerpilih = produk;
+      state.stokTersedia = 0;
+
+      document.getElementById('form-product-id').value = produk.id;
+      document.getElementById('modal-product-title').textContent = produk.nama;
+      document.getElementById('modal-product-price').textContent = `${formatRupiah(produk.hargaPerHari)} / hari`;
+      document.getElementById('summary-tarif').textContent = `${formatRupiah(produk.hargaPerHari)} / hari`;
+
+      // Set tanggal default: hari ini dan besok
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+
+      const todayStr = today.toISOString().split('T')[0];
+      const tomorrowStr = tomorrow.toISOString().split('T')[0];
+
+      document.getElementById('form-mulai').value = todayStr;
+      document.getElementById('form-selesai').value = tomorrowStr;
+      document.getElementById('form-jumlah').value = 1;
+      document.getElementById('form-catatan').value = '';
+      document.getElementById('form-error-alert').classList.add('hidden');
+
+      // Tampilkan modal
+      document.getElementById('booking-modal').classList.remove('hidden');
+
+      // Cek ketersediaan untuk tanggal awal
+      handleDateChange();
+    }
+
+    function tutupModalBooking() {
+      document.getElementById('booking-modal').classList.add('hidden');
+    }
+
+    /**
+     * Pemicu saat tanggal mulai/selesai diubah
+     */
+    function handleDateChange() {
+      const mulai = document.getElementById('form-mulai').value;
+      const selesai = document.getElementById('form-selesai').value;
+      const inputSelesai = document.getElementById('form-selesai');
+
+      if (mulai) {
+        inputSelesai.min = mulai;
+        if (selesai && selesai < mulai) {
+          inputSelesai.value = mulai;
+        }
+      }
+
+      hitungRingkasanHarga();
+      cekStokKeServer();
+    }
+
+    function handleJumlahChange() {
+      hitungRingkasanHarga();
+      validasiJumlahVsStok();
+    }
+
+    /**
+     * Hitung durasi dan estimasi biaya secara real-time di UI
+     */
+    function hitungRingkasanHarga() {
+      if (!state.produkTerpilih) return;
+
+      const mulaiVal = document.getElementById('form-mulai').value;
+      const selesaiVal = document.getElementById('form-selesai').value;
+      const jumlah = parseInt(document.getElementById('form-jumlah').value, 10) || 1;
+
+      if (!mulaiVal || !selesaiVal) return;
+
+      const d1 = new Date(mulaiVal + 'T00:00:00');
+      const d2 = new Date(selesaiVal + 'T00:00:00');
+      const diffTime = d2.getTime() - d1.getTime();
+      let hari = Math.round(diffTime / (1000 * 60 * 60 * 24)) + 1;
+      if (hari < 1) hari = 1;
+
+      const total = state.produkTerpilih.hargaPerHari * jumlah * hari;
+
+      document.getElementById('summary-durasi').textContent = `${hari} Hari`;
+      document.getElementById('summary-total').textContent = formatRupiah(total);
+    }
+
+    /**
+     * Panggil endpoint availability ke backend GAS
+     */
+    let availabilityTimeout = null;
+    function cekStokKeServer() {
+      clearTimeout(availabilityTimeout);
+      const mulai = document.getElementById('form-mulai').value;
+      const selesai = document.getElementById('form-selesai').value;
+      const badge = document.getElementById('availability-badge');
+      const btnSubmit = document.getElementById('btn-submit-booking');
+
+      if (!mulai || !selesai || !state.produkTerpilih) return;
+
+      badge.textContent = 'Mengecek ketersediaan...';
+      badge.className = 'text-xs px-3 py-1.5 rounded-lg bg-zinc-800 text-amber-400 font-medium animate-pulse';
+      btnSubmit.disabled = true;
+
+      // Debounce request selama 300ms
+      availabilityTimeout = setTimeout(async () => {
+        try {
+          const url = `${WEB_APP_URL}?action=availability&produkId=${encodeURIComponent(state.produkTerpilih.id)}&mulai=${mulai}&selesai=${selesai}`;
+          const res = await fetch(url, { credentials: 'omit' });
+          const json = await res.json();
+
+          if (json.success && json.data) {
+            state.stokTersedia = json.data.sisaStok;
+            validasiJumlahVsStok();
+          } else {
+            badge.textContent = 'Gagal memeriksa stok';
+            badge.className = 'text-xs px-3 py-1.5 rounded-lg bg-red-900/30 text-red-400';
+          }
+        } catch (err) {
+          console.error('Availability check error:', err);
+          badge.textContent = 'Error koneksi stok';
+          badge.className = 'text-xs px-3 py-1.5 rounded-lg bg-red-900/30 text-red-400';
+        }
+      }, 300);
+    }
+
+    /**
+     * Memvalidasi input jumlah terhadap stok yang tersedia
+     */
+    function validasiJumlahVsStok() {
+      const badge = document.getElementById('availability-badge');
+      const btnSubmit = document.getElementById('btn-submit-booking');
+      const qty = parseInt(document.getElementById('form-jumlah').value, 10) || 1;
+
+      if (state.stokTersedia <= 0) {
+        badge.textContent = 'Stok Habis pada tanggal ini';
+        badge.className = 'text-xs px-3 py-1.5 rounded-lg bg-red-900/40 text-red-400 border border-red-800 font-semibold';
+        btnSubmit.disabled = true;
+      } else if (qty > state.stokTersedia) {
+        badge.textContent = `Hanya sisa ${state.stokTersedia} unit`;
+        badge.className = 'text-xs px-3 py-1.5 rounded-lg bg-amber-900/40 text-amber-300 border border-amber-800 font-semibold';
+        btnSubmit.disabled = true;
+      } else {
+        badge.textContent = `Tersedia ${state.stokTersedia} unit`;
+        badge.className = 'text-xs px-3 py-1.5 rounded-lg bg-emerald-950/80 text-emerald-400 border border-emerald-800 font-semibold';
+        btnSubmit.disabled = false;
+      }
+    }
+
+    /**
+     * Mengirim form booking via POST fetch
+     */
+    async function handleFormSubmit(event) {
+      event.preventDefault();
+
+      const btnSubmit = document.getElementById('btn-submit-booking');
+      const btnText = document.getElementById('btn-submit-text');
+      const btnSpinner = document.getElementById('btn-submit-spinner');
+      const errorAlert = document.getElementById('form-error-alert');
+
+      errorAlert.classList.add('hidden');
+
+      const payload = {
+        produkId: document.getElementById('form-product-id').value,
+        namaPelanggan: document.getElementById('form-nama').value.trim(),
+        noWhatsApp: document.getElementById('form-wa').value.trim(),
+        email: document.getElementById('form-email').value.trim(),
+        tanggalMulai: document.getElementById('form-mulai').value,
+        tanggalSelesai: document.getElementById('form-selesai').value,
+        jumlah: parseInt(document.getElementById('form-jumlah').value, 10),
+        catatan: document.getElementById('form-catatan').value.trim()
+      };
+
+      // Validasi sisi klien
+      if (!payload.namaPelanggan || !payload.noWhatsApp || !payload.email) {
+        errorAlert.textContent = 'Harap lengkapi semua data wajib.';
+        errorAlert.classList.remove('hidden');
+        return;
+      }
+
+      // Kunci tombol kirim (cegah double submit)
+      btnSubmit.disabled = true;
+      btnText.textContent = 'Menyimpan Booking...';
+      btnSpinner.classList.remove('hidden');
+
+      try {
+        /**
+         * PENTING: Gunakan 'text/plain;charset=utf-8' agar browser tidak memicu
+         * preflight CORS OPTIONS yang tidak didukung secara native oleh Google Apps Script.
+         */
+        const response = await fetch(WEB_APP_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (result.success && result.data) {
+          tutupModalBooking();
+          tampilkanModalSukses(result.data, payload);
+        } else {
+          throw new Error(result.error || 'Gagal memproses booking.');
+        }
+      } catch (err) {
+        console.error('Submission error:', err);
+        errorAlert.textContent = err.message || 'Terjadi gangguan jaringan saat mengirim data. Silakan coba lagi.';
+        errorAlert.classList.remove('hidden');
+      } finally {
+        btnSubmit.disabled = false;
+        btnText.textContent = 'Kirim Booking Sekarang';
+        btnSpinner.classList.add('hidden');
+      }
+    }
+
+    /**
+     * Menampilkan modal konfirmasi sukses setelah booking tercatat di Sheets
+     */
+    function tampilkanModalSukses(dataServer, formInput) {
+      const modal = document.getElementById('success-modal');
+      const bookingId = dataServer.bookingId;
+
+      document.getElementById('success-booking-id').textContent = bookingId;
+
+      // Pesan konfirmasi dari setting
+      const pesanToko = state.pengaturan.PesanKonfirmasi || 'Booking berhasil tercatat!';
+      document.getElementById('success-message-text').textContent = pesanToko;
+
+      // Buat Link WhatsApp Konfirmasi Otomatis
+      const adminWA = (state.pengaturan.NoWhatsAppAdmin || '').replace(/[^0-9]/g, '');
+      const namaToko = state.pengaturan.NamaUsaha || 'Snazzy Garage';
+      
+      const teksWA = `Halo ${namaToko}, saya sudah booking via website dengan data berikut:%0A%0A` +
+        `• *ID Booking:* ${bookingId}%0A` +
+        `• *Nama:* ${formInput.namaPelanggan}%0A` +
+        `• *Produk:* ${dataServer.namaProduk} (${formInput.jumlah} unit)%0A` +
+        `• *Tanggal:* ${formInput.tanggalMulai} s/d ${formInput.tanggalSelesai} (${dataServer.totalHari} hari)%0A` +
+        `• *Total Biaya:* ${formatRupiah(dataServer.totalHarga)}%0A%0A` +
+        `Mohon info ketersediaan fisik dan langkah penyerahan unit. Terima kasih!`;
+
+      const waBtn = document.getElementById('btn-success-wa');
+      if (adminWA) {
+        waBtn.href = `https://wa.me/${adminWA}?text=${teksWA}`;
+        waBtn.classList.remove('hidden');
+      } else {
+        waBtn.classList.add('hidden');
+      }
+
+      modal.classList.remove('hidden');
+    }
+
+    function tutupModalSukses() {
+      document.getElementById('success-modal').classList.add('hidden');
+      // Muat ulang katalog untuk sinkronisasi ketersediaan
+      muatDataKatalog();
+    }
+  </script>
+</body>
+</html>
